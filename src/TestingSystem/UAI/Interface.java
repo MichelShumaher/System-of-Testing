@@ -1,16 +1,22 @@
 package TestingSystem.UAI;
 
 import javax.swing.*;
+import java.awt.*;
 
 
 public class Interface {
 
 
     private JLabel label0 = new JLabel(" Вопрос");
-    private JRadioButton radioButton1 = new JRadioButton();
-    private JRadioButton radioButton2 = new JRadioButton();
-    private JRadioButton radioButton3 = new JRadioButton();
-    private JRadioButton radioButton4 = new JRadioButton();
+
+
+    private ButtonGroup group = new ButtonGroup();
+
+    private JRadioButton radioButton1 = new JRadioButton("1" ,false);
+    private JRadioButton radioButton2 = new JRadioButton("2" ,false);
+    private JRadioButton radioButton3 = new JRadioButton("3" ,false);
+    private JRadioButton radioButton4 = new JRadioButton("4" ,false);
+
 
     private JButton button1 = new JButton("OK");
 
@@ -22,15 +28,19 @@ public class Interface {
     private JPanel panel = new JPanel();
 
 
+    private JFrame myWindow = new JFrame("Do u hold your knowledge?");
 
 
     public void show() {
-        JFrame myWindow = new JFrame("System of Testing");
         myWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myWindow.setSize(800, 600);
         myWindow.setResizable(false);
         myWindow.setLocationRelativeTo(null);
 
+        group.add(radioButton1);
+        group.add(radioButton2);
+        group.add(radioButton3);
+        group.add(radioButton4);
 
 
         radioButton1.setBounds(50, 300, 20, 20);
@@ -45,7 +55,7 @@ public class Interface {
 
 
         label0.setBounds(320, 150, 2000, 20);
-
+        label1.setAlignmentX(Component.RIGHT_ALIGNMENT);
 
         label1.setBounds(70, 300, 800, 20);
 
@@ -172,5 +182,21 @@ public class Interface {
 
     public void setPanel(JPanel panel) {
         this.panel = panel;
+    }
+
+    public ButtonGroup getGroup() {
+        return group;
+    }
+
+    public void setGroup(ButtonGroup group) {
+        this.group = group;
+    }
+
+    public JFrame getMyWindow() {
+        return myWindow;
+    }
+
+    public void setMyWindow(JFrame myWindow) {
+        this.myWindow = myWindow;
     }
 }

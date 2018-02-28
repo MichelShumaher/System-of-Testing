@@ -8,7 +8,7 @@ import static TestingSystem.Configuration.COUNTQUESTIONS;
 public class Data {
 
 
-
+    public static int score = 0;
 
     private String[] questions = new String[COUNTQUESTIONS];
     private String[] answers = new String[COUNTANSWERS];
@@ -37,5 +37,13 @@ public class Data {
 
     public void setRightAnswers(int[] rightAnswers) {
         this.rightAnswers = rightAnswers;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

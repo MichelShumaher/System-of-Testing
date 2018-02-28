@@ -2,10 +2,14 @@ package TestingSystem;
 
 import TestingSystem.Modelu.Data;
 import TestingSystem.UAI.Interface;
+import javafx.scene.control.RadioButton;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import static TestingSystem.Configuration.COUNTANSWERS;
@@ -72,13 +76,32 @@ public class Main {
         AtomicInteger counter = new AtomicInteger(1);
         ui.getButton1().addActionListener(event -> {
 
-            if (counter.get() < COUNTQUESTIONS) {
+            if (counter.get() <= COUNTQUESTIONS) {
                 //TODO ДОБАВИТЬ ПРОВЕРКУ НАЖАТИЯ РАДИОБАТТОНОВ
+                Enumeration<AbstractButton> buttons = ui.getGroup().getElements();
+                int selected = -1;
+                for ( int j = 0; j < 4; j++) {
+                    AbstractButton tempButton = buttons.nextElement();
+                    if (tempButton.isSelected()) {
+                        selected = Integer.parseInt(tempButton.getText());
 
-                Main.update(ui, voprosi, otveti, counter.get());
-            } else {
-                Main.showFinalScreen();
+                    }
+                }
+                if (selected == data.getRightAnswers()[counter.get()-1]) {
+                     Data.score++;
+                }
+                System.out.println(selected);
+                System.out.println(data.getRightAnswers()[counter.get()-1]);
+                System.out.println(Data.score);
+
+
+                if (counter.get() < COUNTQUESTIONS) Main.update(ui, voprosi, otveti, counter.get());
+                else {
+                    Main.showFinalScreen(ui);
+
+                }
             }
+
             counter.getAndIncrement();
         });
 
@@ -92,6 +115,9 @@ public class Main {
         ui.getLabel2().setText(otveti[1]);
         ui.getLabel3().setText(otveti[2]);
         ui.getLabel4().setText(otveti[3]);
+
+
+
     }
 
     public static void update(Interface ui, String[] voprosi, String[] otveti, int i) {
@@ -100,10 +126,22 @@ public class Main {
         ui.getLabel2().setText(otveti[4 * i + 1]);
         ui.getLabel3().setText(otveti[4 * i + 2]);
         ui.getLabel4().setText(otveti[4 * i + 3]);
+        ui.getGroup().clearSelection();
+
 
     }
-    public static void showFinalScreen() {
-        System.out.println("final screen");
+    public static void showFinalScreen(Interface qwerty) {
+        qwerty.getMyWindow().setVisible(false);
+        JFrame myWindow1 = new JFrame("The end");
+        myWindow1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        myWindow1.setSize(300, 200);
+        myWindow1.setResizable(false);
+        myWindow1.setLocationRelativeTo(null);
+        myWindow1.setVisible(true);
+        JLabel labelscore = new JLabel(String.valueOf("Your Score = " + Data.score));
+        myWindow1.add(labelscore);
+        labelscore.setHorizontalAlignment(SwingConstants.CENTER);
+
     }
 
 }
