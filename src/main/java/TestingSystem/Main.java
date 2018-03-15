@@ -43,7 +43,7 @@ public class Main {
 
 
         BufferedReader reader1 = new BufferedReader(new InputStreamReader(
-                ClassLoader.getSystemResourceAsStream("questions.txt")));
+                ClassLoader.getSystemResourceAsStream("questions.txt"), "UTF-8"));
 
 //        BufferedReader reader1 = new BufferedReader(readerQuestions);
         String line1 = reader1.readLine();
@@ -57,7 +57,7 @@ public class Main {
         //2
 
         BufferedReader reader2 = new BufferedReader(new InputStreamReader(
-                ClassLoader.getSystemResourceAsStream("answers.txt")));
+                ClassLoader.getSystemResourceAsStream("answers.txt"), "UTF-8"));
         String line2 = reader2.readLine();
         i = 0;
         while (line2 != null) {
@@ -68,7 +68,7 @@ public class Main {
         }
         //3
         BufferedReader reader3 = new BufferedReader(new InputStreamReader(
-                ClassLoader.getSystemResourceAsStream("rightAnswers.txt")));
+                ClassLoader.getSystemResourceAsStream("rightAnswers.txt"), "UTF-8"));
         String line3 = reader3.readLine();
         i = 0;
         while (line3 != null) {
