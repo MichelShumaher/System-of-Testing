@@ -28,9 +28,17 @@ public class Main {
         data.setAnswers(otveti);
         data.setRightAnswers(pravotveti);
 
-        FileReader readerQuestions = new FileReader("questions.txt");
-        FileReader readerAnswers = new FileReader("answers.txt");
-        FileReader readerRightAnswers = new FileReader("rightAnswers.txt");
+//        FileReader readerQuestions = new FileReader("src/main/resources/questions.txt");
+//        FileReader readerAnswers = new FileReader("src/main/resources/answers.txt");
+//        FileReader readerRightAnswers = new FileReader("src/main/resources/rightAnswers.txt");
+//
+//        FileReader readerQuestions = new FileReader(new String(Files.readAllBytes(Paths.get("src/main/resources/questions.txt"))));
+//        FileReader readerAnswers = new FileReader(new String(Files.readAllBytes(Paths.get("answers.txt"))));
+//        FileReader readerRightAnswers = new FileReader(new String(Files.readAllBytes(Paths.get("rightAnswers.txt"))));
+
+        FileReader readerQuestions = new FileReader(String.valueOf((ClassLoader.getSystemResource("questions.txt"))));
+        FileReader readerAnswers = new FileReader(String.valueOf(Main.class.getResourceAsStream("answers.txt")));
+        FileReader readerRightAnswers = new FileReader(String.valueOf(Main.class.getResourceAsStream("rightAnswers.txt")));
 
         BufferedReader reader1 = new BufferedReader(readerQuestions);
         String line1 = reader1.readLine();

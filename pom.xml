@@ -32,7 +32,7 @@
     </dependencies>
 
     <build>
-        <finalName>dateutils</finalName>
+        <finalName>System-of-testing</finalName>
 
         <resources>
             <resource>
