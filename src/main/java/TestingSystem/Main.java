@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Enumeration;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -36,11 +37,15 @@ public class Main {
 //        FileReader readerAnswers = new FileReader(new String(Files.readAllBytes(Paths.get("answers.txt"))));
 //        FileReader readerRightAnswers = new FileReader(new String(Files.readAllBytes(Paths.get("rightAnswers.txt"))));
 
-        FileReader readerQuestions = new FileReader(String.valueOf((ClassLoader.getSystemResource("questions.txt"))));
-        FileReader readerAnswers = new FileReader(String.valueOf(Main.class.getResourceAsStream("answers.txt")));
-        FileReader readerRightAnswers = new FileReader(String.valueOf(Main.class.getResourceAsStream("rightAnswers.txt")));
+//        FileReader readerQuestions = new FileReader(String.valueOf((ClassLoader.getSystemResourceAsStream("questions.txt"))));
+//        FileReader readerAnswers = new FileReader(String.valueOf(Main.class.getResourceAsStream("answers.txt")));
+//        FileReader readerRightAnswers = new FileReader(String.valueOf(Main.class.getResourceAsStream("rightAnswers.txt")));
 
-        BufferedReader reader1 = new BufferedReader(readerQuestions);
+
+        BufferedReader reader1 = new BufferedReader(new InputStreamReader(
+                ClassLoader.getSystemResourceAsStream("questions.txt")));
+
+//        BufferedReader reader1 = new BufferedReader(readerQuestions);
         String line1 = reader1.readLine();
         int i = 0;
         while (line1 != null) {
@@ -51,7 +56,8 @@ public class Main {
         }
         //2
 
-        BufferedReader reader2 = new BufferedReader(readerAnswers);
+        BufferedReader reader2 = new BufferedReader(new InputStreamReader(
+                ClassLoader.getSystemResourceAsStream("answers.txt")));
         String line2 = reader2.readLine();
         i = 0;
         while (line2 != null) {
@@ -61,7 +67,8 @@ public class Main {
             i++;
         }
         //3
-        BufferedReader reader3 = new BufferedReader(readerRightAnswers);
+        BufferedReader reader3 = new BufferedReader(new InputStreamReader(
+                ClassLoader.getSystemResourceAsStream("rightAnswers.txt")));
         String line3 = reader3.readLine();
         i = 0;
         while (line3 != null) {
@@ -74,9 +81,9 @@ public class Main {
         }
 
 
-        readerQuestions.close();
-        readerAnswers.close();
-        readerRightAnswers.close();
+        //readerQuestions.close();
+//        readerAnswers.close();
+//        readerRightAnswers.close();
 
         Main.init(ui, voprosi, otveti);
         AtomicInteger counter = new AtomicInteger(1);

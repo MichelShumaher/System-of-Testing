@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="System-of-Testing:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/System_of_Testing_jar</output-path>
-    <root id="archive" name="System-of-Testing.jar">
-      <element id="module-output" name="System-of-Testing" />
-    </root>
-  </artifact>
-</component>

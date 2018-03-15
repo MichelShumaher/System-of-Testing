@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/System-of-Testing.iml" filepath="$PROJECT_DIR$/.idea/System-of-Testing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/System-of-Testing.iml" filepath="$PROJECT_DIR$/System-of-Testing.iml" />
     </modules>
   </component>
 </project>
