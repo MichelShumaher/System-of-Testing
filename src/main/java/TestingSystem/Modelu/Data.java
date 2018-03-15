@@ -1,7 +1,7 @@
 package TestingSystem.Modelu;
 
-import TestingSystem.Configuration;
-
+import static TestingSystem.Configuration.COUNTANSWERS;
+import static TestingSystem.Configuration.COUNTQUESTIONS;
 import static TestingSystem.Configuration.COUNTANSWERS;
 import static TestingSystem.Configuration.COUNTQUESTIONS;
 

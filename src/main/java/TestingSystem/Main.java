@@ -2,13 +2,11 @@ package TestingSystem;
 
 import TestingSystem.Modelu.Data;
 import TestingSystem.UAI.Interface;
-import javafx.scene.control.RadioButton;
 
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -77,7 +75,7 @@ public class Main {
         ui.getButton1().addActionListener(event -> {
 
             if (counter.get() <= COUNTQUESTIONS) {
-                //TODO ДОБАВИТЬ ПРОВЕРКУ НАЖАТИЯ РАДИОБАТТОНОВ
+
                 Enumeration<AbstractButton> buttons = ui.getGroup().getElements();
                 int selected = -1;
                 for ( int j = 0; j < 4; j++) {

@@ -7,7 +7,7 @@ import java.awt.*;
 public class Interface {
 
 
-    private JLabel label0 = new JLabel(" Вопрос");
+    private JLabel label0 = new JLabel();
 
 
     private ButtonGroup group = new ButtonGroup();
@@ -28,7 +28,7 @@ public class Interface {
     private JPanel panel = new JPanel();
 
 
-    private JFrame myWindow = new JFrame("Do u hold your knowledge?");
+    private JFrame myWindow = new JFrame("Check knowledge");
 
 
     public void show() {
@@ -89,7 +89,7 @@ public class Interface {
         panel.add(label3);
         panel.add(label4);
 
-        //TODO СДЕЛАТЬ ОБНУЛЕНИЕ РАДИОБАТТОНОВ, ЧТОБЫ ВЫБИРАЛСЯ ТОЛЬКО ОДИН
+
 
         panel.setLayout(null);
         myWindow.setVisible(true);
